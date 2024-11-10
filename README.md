@@ -1,75 +1,49 @@
-# Monorepo Template
+# ✈️ Flight Academy App
 
-A template to create a monorepo SST ❍ Ion project.
+Welcome to the Flight-Academy application repository, built using [SST](sst.dev) (Serverless Stack)! This repository houses the entire ecosystem of our flight school management application, enabling centralised development, testing, and deployment (WIP).
 
-## Get started
+## 🗂️ Structure
 
-1. Use this template to [create your own repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+This repository contains all core services and applications in the flight school platform, including:
 
-2. Clone the new repo.
+    /packages: Core, Backend, Frontend & Lambda Functions
+        Core: Domains & relevant logic such as: students, instructors, schedules, and billing...
+        Web: Primary portal for tracking progress and scheduling. Interface for instructors to manage classes, log hours, and view student progress.
+    /infra: SST-based infrastructure-as-code for provisioning AWS resources.
+        Database: Serverlesss RDS Database configuration.
+        API Services: API configuration.
 
-   ```bash
-   git clone MY_APP
-   cd MY_APP
-   ```
+## 🚀 Getting Started
 
-3. Rename the files in the project to the name of your app. 
+    Install dependencies:
 
-   ```bash
-   npx replace-in-file '/flight-academy/g' MY_APP **/*.* --verbose
-   ```
+```
+npm i
+```
 
-4. Deploy!
+Start the SST development environment:
 
-   ```bash
-   npm install
-   npx sst deploy
-   ```
+```
+sst dev
+```
 
-6. Optionally, enable [_git push to deploy_](https://ion.sst.dev/docs/console/#autodeploy).
+This will run the application locally with live AWS Lambda emulation.
 
-## Usage
+Deploy to AWS:
 
-This template uses [npm Workspaces](https://docs.npmjs.com/cli/v8/using-npm/workspaces). It has 3 packages to start with and you can add more it.
+    npm sst deploy
 
-1. `core/`
+    Deploys the entire stack to your AWS account using SST.
 
-   This is for any shared code. It's defined as modules. For example, there's the `Example` module.
+🛠️ Tech Stack
 
-   ```ts
-   export module Example {
-     export function hello() {
-       return "Hello, world!";
-     }
-   }
-   ```
+    SST: Serverless framework for managing AWS resources (v3)
+    AWS Lambda, RDS, S3: Core backend services
+    Astro & Svelte: Frontend framework for portals and dashboard
+    REST: API layer for communication between services
 
-   That you can use across other packages using.
+📫 Contributing
 
-   ```ts
-   import { Example } from "@aws-monorepo/core/example";
+Please review our CONTRIBUTING.md guide before submitting a PR.
 
-   Example.hello();
-   ```
-
-2. `functions/`
-
-   This is for your Lambda functions and it uses the `core` package as a local dependency.
-
-3. `scripts/`
-
-    This is for any scripts that you can run on your SST app using the `sst shell` CLI and [`tsx`](https://www.npmjs.com/package/tsx). For example, you can run the example script using:
-
-   ```bash
-   npm run shell src/example.ts
-   ```
-
-### Infrastructure
-
-The `infra/` directory allows you to logically split the infrastructure of your app into separate files. This can be helpful as your app grows.
-
-In the template, we have an `api.ts`, and `storage.ts`. These export the created resources. And are imported in the `sst.config.ts`.
-
----
-
-Join the SST community over on [Discord](https://discord.gg/sst) and follow us on [Twitter](https://twitter.com/SST_dev).
+Thank you for contributing to the Flight Academy platform! Together, we’re building the future of flight school management.
