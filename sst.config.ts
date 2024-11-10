@@ -4,12 +4,16 @@ export default $config({
   app(input) {
     return {
       name: "flight-academy",
+      providers: {
+        aws: {
+          profile: input.stage === "production" ? "flight-academy-production" : "flight-academy-dev"
+        }
+      },
       removal: input?.stage === "production" ? "retain" : "remove",
       home: "aws",
     };
   },
   async run() {
-    await import("./infra/storage");
     const api = await import("./infra/api");
 
     return {
