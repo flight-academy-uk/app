@@ -15,7 +15,7 @@ This repository contains all core services and applications in the flight school
 
 ## 🚀 Getting Started
 
-    Install dependencies:
+Install dependencies:
 
 ```
 npm i
@@ -31,16 +31,16 @@ This will run the application locally with live AWS Lambda emulation.
 
 Deploy to AWS:
 
-    npm sst deploy
+   npm sst deploy
 
-    Deploys the entire stack to your AWS account using SST.
+Deploys the entire stack to your AWS account using SST.
 
 🛠️ Tech Stack
 
-    SST: Serverless framework for managing AWS resources (v3)
-    AWS Lambda, RDS, S3: Core backend services
-    Astro & Svelte: Frontend framework for portals and dashboard
-    REST: API layer for communication between services
+- SST: Serverless framework for managing AWS resources (v3)
+- AWS Lambda, RDS, S3: Core backend services
+- Astro & Svelte: Frontend framework for portals and dashboard
+- REST: API layer for communication between services
 
 📫 Contributing
 
