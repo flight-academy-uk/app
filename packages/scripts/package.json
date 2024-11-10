@@ -2,7 +2,7 @@
   "name": "@flight-academy/scripts",
   "version": "0.0.0",
   "dependencies": {
-    "@flight_academy/core": "*",
+    "@flight-academy/core": "*",
     "sst": "*"
   },
   "scripts": {
