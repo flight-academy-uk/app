@@ -31,7 +31,9 @@ This will run the application locally with live AWS Lambda emulation.
 
 Deploy to AWS:
 
-   npm sst deploy
+```
+npm sst deploy
+```
 
 Deploys the entire stack to your AWS account using SST.
 
