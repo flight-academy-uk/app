@@ -1,0 +1,31 @@
+---
+import type { GetStaticPaths } from "astro";
+import Basic from '../../layouts/Basic.astro';
+import Prose from '../../components/Prose.astro';
+import { getCollection } from 'astro:content';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+    const developmentUpdateEntries = await getCollection('ai-insights');
+    return developmentUpdateEntries.map(entry => ({
+        params: {slug: entry.slug},
+        props: {entry},
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+---
+
+<Basic
+    title={entry.data.title}
+    description={entry.data.description}
+>
+    <main class="bg-primary-200 dark:bg-tertiary-700 m-0 p-0">
+        <Prose>
+            <Content />
+        </Prose>
+    </main>
+</Basic>
