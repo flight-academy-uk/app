@@ -6,18 +6,45 @@ import Basic from "../layouts/Basic.astro";
   title="Flight-Academy Uk"
   description="Providing Exceptional Flight School Management Solutions"
 >
-  <div
-    class="bg-white dark:text-white dark:bg-black text-black h-svh flex justify-center items-center font-mono uppercase"
-  >
-    <div
-      class="bg-indigo-200 dark:bg-indigo-600 rounded-3xl border-indigo-100 dark:border-indigo-500 border-4 p-4 flex justify-center items-center text-center shadow-lg"
+  <main>
+    <section
+      class="font-noto sm:h-svh text-center bg-[url('/images/pattern-iso.svg')] dark:bg-[url('/images/pattern-iso-dark.svg')] bg-primary-50 dark:bg-tertiary-900"
     >
-      <div>
-        <h1 class="text-2xl">Flight-Academy Uk</h1>
-        <h2 class="text-gray-900 dark:text-gray-200">
-          Currently Under Development
-        </h2>
+      <div
+        class="py-5 px-8 bg-gradient-to-b from-primary-200 dark:from-tertiary-600 from-10% to-transparent"
+      >
+        <div class="sm:flex sm:flex-col w-full justify-center items-center dark:text-white">
+          <div class="sm:max-w-[660px]">
+            <h1 class="py-5 font-semibold text-2xl text-center">
+              Transform operations with a <a
+                class="decoration-sunrise-500 decoration-4 underline"
+                href="#todo"
+                >unified dashboard</a
+              > for your flight school.
+            </h1>
+            <p class="py-3 font-thin">
+              At Flight Academy UK, we bring expertise, innovation, and technology
+              to empower flight schools—streamlining everything from aircraft
+              maintenance to student training and operations. We also connect
+              aspiring pilots with the resources they need to find the perfect
+              flight school, shaping the future of aviation one student at a time.
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0">
+              <a href="/contact-us" class="inline-flex h-full w-full justify-center items-center py-3 px-5 text-xl font-medium text-center text-white rounded-lg bg-secondary-600 hover:bg-secondary-700 focus:ring-4 focus:ring-secondary-400">
+                Get started
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="w-6 h-6 ms-2" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                </svg>
+              </a>
+              <a href="/guides" class="inline-flex h-full w-full justify-center items-center py-3 px-5 sm:ms-4 text-xl font-medium text-center text-sunrise-500 rounded-lg border border-sunrise-500 hover:text-sunset-500 hover:border-sunset-500 focus:ring-2 focus:ring-sunrise-400">
+                  Learn more
+              </a>  
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
+    <section class="bg-primary-50 dark:bg-tertiary-800 border-t-2 border-primary-950 border-dashed h-svh dark:text-white font-mono">
+    </section>
+  </main>
 </Basic>
