@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Noto';
+        src: url('/fonts/Noto/NotoSans-VariableFont_wdth,wght.ttf');
+    }
+
+    @font-face {
+        font-family: 'Oswald';
+        src: url('/fonts/Oswald/Oswald-VariableFont_wght.ttf');
+    }
+
+    @font-face {
+        font-family: 'Caveat';
+        src: url('/fonts/Caveat/Caveat-VariableFont_wght.ttf');
+    }
+
+    @font-face {
+        font-family: 'Funnel';
+        src: url('/fonts/Funnel_Sans/FunnelSans-VariableFont_wght.ttf');
+    }
+
+    @font-face {
+        font-family: 'Nunito';
+        src: url('/fonts/Nunito/Nunito-VariableFont_wght.ttf');
+    }
+
+    @font-face {
+        font-family: 'Borel';
+        src: url('/fonts/Borel/Borel-Regular.ttf');
+    }
+
+    @font-face {
+        font-family: 'Vibur';
+        src: url('/fonts/Vibur/Vibur-Regular.ttf');
+    }
+
+    @font-face {
+        font-family: 'Playwright_GB_J';
+        src: url('/fonts/Playwrite_GB_J/PlaywriteGBJ-VariableFont_wght.ttf');
+    }
+}
