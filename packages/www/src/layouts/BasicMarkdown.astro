@@ -1,0 +1,17 @@
+---
+import Prose from "../components/Prose.astro";
+import Basic from "./Basic.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Basic
+    title={frontmatter.title}
+    description={frontmatter.description}
+>
+<main class="bg-primary-200 dark:bg-tertiary-700 m-0 p-0">
+    <Prose>
+        <slot />
+    </Prose>
+</main>
+</Basic>
