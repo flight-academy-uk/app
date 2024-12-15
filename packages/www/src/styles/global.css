@@ -43,3 +43,12 @@
         src: url('/fonts/Playwrite_GB_J/PlaywriteGBJ-VariableFont_wght.ttf');
     }
 }
+
+.flipped .flippable-row {
+    flex-direction: row-reverse;
+}
+
+
+.flipped .flippable-col {
+    flex-direction: col-reverse;
+}
