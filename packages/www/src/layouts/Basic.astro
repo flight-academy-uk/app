@@ -8,6 +8,7 @@ const { title, description } = Astro.props;
 
 import ThemeLayout from "./ThemeLayout.astro";
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <ThemeLayout>
@@ -22,6 +23,7 @@ import Navigation from "../components/Navigation.astro";
     <body>
       <Navigation />
       <slot />
+      <Footer />
     </body>
   </html>
 </ThemeLayout>
