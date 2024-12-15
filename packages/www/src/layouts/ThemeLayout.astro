@@ -13,12 +13,23 @@ import '../styles/global.css'
     return "light";
   })();
 
-  if (theme === "light") {
-    document.documentElement.classList.remove("dark");
-  } else {
-    document.documentElement.classList.add("dark");
-  }
+  if (theme === "light") document.documentElement.classList.remove("dark");
+  else document.documentElement.classList.add("dark");
+
   window.localStorage.setItem("theme", theme);
+
+  const handedness = (() => {
+    if (typeof(localStorage !== "undefined") && localStorage.getItem("handedness")) {
+      return localStorage.getItem("handedness");
+    }
+    return "right";
+  })();
+
+  if (handedness === "right") document.documentElement.classList.remove("flipped");
+  else document.documentElement.classList.add("flipped");
+
+  window.localStorage.setItem("handedness", handedness);
+
 </script>
 
 <slot />

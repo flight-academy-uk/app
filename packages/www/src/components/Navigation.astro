@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import LightSwitch from '../components/LightSwitch.svelte';
+import ControlFlipper from '../components/ControlFlipper.svelte';
 import Logo from '../images/logo.svg';
 ---
 
@@ -15,7 +16,7 @@ import Logo from '../images/logo.svg';
   }
 </style>
 
-<nav class="flex items-center justify-between w-full bg-primary-200 p-4 font-playwrite text-lg text-center text-tertiary-700 dark:bg-tertiary-700 dark:text-white">
+<nav class="flex items-center flippable-row justify-between w-full bg-primary-200 p-4 font-playwrite text-lg text-center text-tertiary-700 dark:bg-tertiary-700 dark:text-white">
   <!-- Logo -->
   <a href="/" class="flex items-center select-none">
     <Image src={Logo} alt="" width={32} height={32} class="mr-2"/>
@@ -24,8 +25,7 @@ import Logo from '../images/logo.svg';
   <!-- Overlay Close Input Control -->
   <input type="radio" id="navigation-close" name="navigation" class="hidden"/>
   <!-- Search -->
-  <div class="flex">
-    
+  <div class="flex flippable-row">
     <input type="radio" class="hidden" id="navigation-search" name="navigation"/>
     <label for="navigation-search" class="cursor-pointer px-4">
       <svg xmlns="http://www.w3.org/2000/svg" class="fill-tertiary-700 dark:fill-white" width="24" height="24" viewBox="0 0 16 16">
@@ -57,50 +57,49 @@ import Logo from '../images/logo.svg';
     </label> 
     <!-- [NAVIGATION OVERLAY] -->
     <label 
-      class="fixed font-noto overflow-y-scroll flex flex-col justify-evenly items-center h-svh w-full top-0 left-0 -translate-y-full transition-transform duration-300 ease-in-out bg-primary-400 dark:bg-tertiary-900 dark:text-white text-black z-50" 
+      class="fixed font-noto overflow-y-scroll flex h-svh w-full top-0 left-0 -translate-y-full transition-transform duration-300 ease-in-out bg-primary-400 dark:bg-tertiary-900 dark:text-white text-black z-50" 
       id="navigation"
       for="navigation-close"
-    >
-      <ul class="w-full px-10 text-xl text-white">
-        <li>
-          <a href="/" class="flex py-2 px-3 gap-x-2 justify-center items-center rounded-t-lg bg-secondary-600 hover:bg-secondary-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-              <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
-            </svg>
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="/find-out-more" class="flex py-2 px-3 gap-x-2 justify-center items-center bg-secondary-600 hover:bg-secondary-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-              <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
-            </svg>     
-            About
-          </a>
-        </li>
-        <li>
-          <a href="/guides" class="flex py-2 px-3 gap-x-2 justify-center items-center bg-secondary-600 hover:bg-secondary-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
-              <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
-            </svg>    
-            Guides
-          </a>
-        </li>
-        <li>
-          <a href="/contact-us" class="flex py-2 px-3 gap-x-2 justify-center items-center rounded-b-lg bg-secondary-600 hover:bg-secondary-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-              <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-            </svg>          
-            Contact
-          </a>
-        </li>
-      </ul>
-      <div class="w-full px-10 text-xl">
-        <LightSwitch client:visible />
-      </div>
-      <div class="w-full px-10 text-xl">
-        <label for="navigation-close" class="block shadow-lg py-2 bg-secondary-600 hover:bg-secondary-700 rounded-lg text-white">Exit</label>
+    > 
+      <div class="flex flex-col w-full py-10 justify-between">
+        <div class="flex flippable-row justify-between px-8 pb-10">
+          <Image src={Logo} alt="" width={32} height={32} />
+        <label for="navigation-close" class="block cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+          </svg>
+        </label>
         <span class="sr-only">Close Menu</span>
+        </div>
+        <div class="flex flex-col justify-start h-full space-y-4 px-12 py-4">
+          <a href="/find-out-more" class="flex justify-between md:justify-around items-center py-2">
+            <span class="w-20">Product</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+          </a>
+          <a href="/guides" class="flex justify-between md:justify-around items-center py-2">
+            <span class="w-20">Guides</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+          </a>
+          <a href="/contact-us" class="flex justify-between md:justify-around items-center py-2">
+            <span class="w-20">Contact</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+          </a>
+          <div class="flex justify-center py-10">
+            <a href="/contact-us" class="flex w-full justify-center max-w-64 items-center h-10 line-m py-3 px-5 text-xl font-medium text-white rounded-lg bg-secondary-600 hover:bg-secondary-700 focus:ring-4 focus:ring-secondary-400">
+              Get started
+            </a>
+          </div>
+        </div>
+        <div class="flex justify-evenly">
+          <LightSwitch client:visible />
+          <ControlFlipper client:visible />
+        </div>
       </div>
     </label>
   </div>
